@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>STEV.e GUI CONTROL</title>
+    <link rel="stylesheet" href="views/css/layout.css" type="text/css">
+</head>
+
+<body>
+    <img id="title" src="image/steveTitle.png">
+    <div id="container">
+        <video autoplay="true" id="videoElement"></video>
+    </div>
+
+    <div id="keyMain">
+        <img id="key_w" width=60px height=60px src="image/key_w_unpressed.png">
+        <img id="key_a" width=60px height=60px src="image/key_a_unpressed.png">
+        <img id="key_s" width=60px height=60px src="image/key_s_unpressed.png">
+        <img id="key_d" width=60px height=60px src="image/key_d_unpressed.png">
+        <img id="key_j" width=60px height=60px src="image/key_j_unpressed.png">
+        <img id="key_k" width=60px height=60px src="image/key_k_unpressed.png">
+        <img id="key_x" width=60px height=60px src="image/key_x_unpressed.png">
+        <div class="toggle">
+            <p id="toggleText">라즈베리파이 ON/OFF</p>
+            <input type="checkbox" id="chkbox" autocomplete="on">
+        </div>
+    </div>
+    <div id="instructionMain">
+        <img id="instruction" src="image/instruction.png" width=700px>
+    </div>
+    <div id="dashboard">
+        <p id="batteryMain">
+            <svg id="battery" width="70" height="200">
+                <rect id="outbattery" x="2" y="2" rx="5" ry="5" width="35" height="170" stroke="#3498db" stroke-width="2" />
+                <rect id="fill" x="2" y="2" rx="5" ry="5" width="35" height="0" style="fill:#4CAF50;" />
+            </svg>
+            <p id="batteryText"></p>
+        </p>
+        <img id="degreeG" src="image/dashLoading.png">
+        <div id="GText">짐벌 각도</div>
+        <img id="degreeS" src="image/dashLoading.png">
+        <div id="SText">태양전지 각도</div>
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="views/js/webcam.js"></script>
+    <script src="views/js/battery.js"></script>
+    <script src="views/js/keyboard.js"></script>
+    <script src="views/js/rasp.js"></script>
+    <script src="views/js/gimbal.js"></script>
+    <script src="views/js/solarTracker.js"></script>
+</body>
+
+</html>
