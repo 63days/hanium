@@ -1,5 +1,13 @@
 # 2019 HANIUM contest
 ## Team name: STEV.e (SolarTracking Mapping Robot)
+
+__\<Member>__
+  
+- __Juil Koo__: Server-MCU-Client communication, GUI Programming, Automatically Mapping System
+- __Heesoo Kim__: Machine design, ARM Coding(STM32F103RB - nucleo board), Solar Tracking part
+https://github.com/zentornoe/Stev.e 
+- __Daeuk Kim__: Citcuit, Action Camera, RF Communication part
+
 <img src="https://user-images.githubusercontent.com/37788686/98651316-6fe38d00-237d-11eb-9f6d-66fb083ca32b.png" width="70%">
 STEV.e is the robot exploring the areas, such as disaster areas that are hard for people to go. STEV.e has camera showing the current situation and RPLidar to map the surrounding terrain.
 
