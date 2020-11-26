@@ -23,3 +23,63 @@ STEV.e is the robot exploring the areas, such as disaster areas that are hard fo
 
 2. __GUI Control Program__: The GUI control program is a program that allows users to remotely control the robot very intuitively. The GUI program is largely divided into two areas: server and client. For clients who cannot communicate directly with the MCU, the server acts as a stepping stone between the MCU and the client. The MCU and the server communicate through the serial port API of Node.js, and the server-client communication is through the socket.io API. Between the MCU and the client, the server not only sends and receives data, but also processes raw data into the appropriate necessary data. Client development is responsible for the graphical aspects that are directly visible to the user. First of all, it outputs an action cam video that it has received through RF communication on the screen. Also, based on various data received from the server, it graphically expresses the robot's current battery power, solar cell angle, and gimbal angle, and indicates that raspberry pie power can be switched on and off with toggle buttons. In addition, when the keyboard is pressed, it graphically expresses which key is pressed on the screen through event processing.
 <img src="https://user-images.githubusercontent.com/37788686/98651856-22b3eb00-237e-11eb-8e58-61a8271df8c4.png" width="100%">
+
+## Code Explanation
+* views/css/layout.css : CSS code to draw GUI web page.
+* views/js/\*.js: These are front-end javascript codes. 
+  + keyboard.js 
+```js
+window.onkeydown = function () {
+     if (event.keyCode == 87) {
+         key_w.src = "image/key_w_pressed.png";
+     } else if (event.keyCode == 65) {
+         key_a.src = "image/key_a_pressed.png";
+     } else if (event.keyCode == 83) {
+         key_s.src = "image/key_s_pressed.png";
+     } else if (event.keyCode == 68) {
+         key_d.src = "image/key_d_pressed.png";
+     } else if (event.keyCode == 74) {
+         key_j.src = "image/key_j_pressed.png";
+     } else if (event.keyCode == 75) {
+         key_k.src = "image/key_k_pressed.png";
+     } else if (event.keyCode == 88) {
+         key_x.src = "image/key_x_pressed.png";
+     }
+ }
+ window.onkeyup = function () {
+     if (event.keyCode == 87) {
+         key_w.src = "image/key_w_unpressed.png";
+     } else if (event.keyCode == 65) {
+         key_a.src = "image/key_a_unpressed.png";
+     } else if (event.keyCode == 83) {
+         key_s.src = "image/key_s_unpressed.png";
+     } else if (event.keyCode == 68) {
+         key_d.src = "image/key_d_unpressed.png";
+     } else if (event.keyCode == 74) {
+         key_j.src = "image/key_j_unpressed.png";
+     } else if (event.keyCode == 75) {
+         key_k.src = "image/key_k_unpressed.png";
+     } else if (event.keyCode == 88) {
+         key_x.src = "image/key_x_unpressed.png";
+     }
+ }
+```
+onkeydown, onkeyup take key event. onkeydown draw pressed key image and onkeyup draw unpressed key image, so user can know which key is pressed.
+
+  + webcam.js
+```js
+var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({
+                    video: true
+                })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function(err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
+```
+This code streams webcam in web page.
